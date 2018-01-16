@@ -6,6 +6,7 @@
 
 - fixed `duration` problem, now animation work good.
 - support **scroll down** and **scroll up**
+- support specific scroll container
 - Optimize code
 
 ## Instalation
@@ -31,13 +32,15 @@ Vue.use(vueSmoothScroll)
   {
     duration: 500, // Animation speed
     offset: 0, // Offset from element, you can use positive or negative values
-    cotainer: '', // the scroll container, default is window,use document.querySelector find the Element
+    cotainer: '', // the scroll container, default is window,use document.querySelector to query the Element
   }
 ```
 ### Example:
 ``` html
-<a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50 }">Anchor</a>
-<div id="div-id"></div>
+<div id="container">
+  <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container' }">Anchor</a>
+  <div id="div-id"></div>
+</div>
 ```
 
 
