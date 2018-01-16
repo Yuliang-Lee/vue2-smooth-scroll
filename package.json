@@ -1,0 +1,35 @@
+{
+  "name": "vue2-smooth-scroll",
+  "version": "1.0.0",
+  "description": "Simple vue smooth scroll",
+  "main": "dist/vue-smooth-scroll.min.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "webpack --progress -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Yuliang-Lee/vue2-smooth-scroll.git"
+  },
+  "keywords": [
+    "vue",
+    "smooth",
+    "scroll"
+  ],
+  "author": "xlaoyu <frank_yll@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yuliang-Lee/vue2-smooth-scroll/issues"
+  },
+  "homepage": "https://github.com/Yuliang-Lee/vue2-smooth-scroll#readme",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.15.0",
+    "webpack": "^3.10.0"
+  }
+}
