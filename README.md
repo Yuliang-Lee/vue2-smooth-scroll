@@ -1,5 +1,10 @@
 # Vue2 Smooth Scroll
 
+[![Vue 2.x](https://img.shields.io/badge/Vue-2.x-brightgreen.svg)](https://vuejs.org/v2/guide/)
+[![npm](https://img.shields.io/npm/v/vue2-smooth-scroll.svg)](https://www.npmjs.com/package/vue2-smooth-scroll)
+[![npm-downloades](https://img.shields.io/npm/dm/vue2-smooth-scroll.svg)](https://www.npmjs.com/package/vue2-smooth-scroll)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Yuliang-Lee/vue2-smooth-scroll/blob/master/LICENSE)
+
 > Simple vue smooth scroll extended from [vue-smooth-scroll](https://github.com/alamcordeiro/vue-smooth-scroll)
 
 ## Features
