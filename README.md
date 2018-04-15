@@ -68,3 +68,7 @@ Vue.use(vueSmoothScroll)
 </script>
 </body>
 ```
+
+## License
+
+MIT
