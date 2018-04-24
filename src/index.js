@@ -26,11 +26,10 @@ export default {
         // That means no smoothscroll on IE9 and below.
         if (typeof window !== 'object' || window.pageYOffset === undefined) return;
 
-        let {
-          duration,
-          offset,
-          container
-        } = Object.assign({}, defaultValue, binding.value);
+        let { duration, offset, container } = binding.value;
+        duration = duration || defaultValue.duration;
+        offset = offset || defaultValue.offset;
+        container = container || defaultValue.container;
 
         if (typeof container === 'string') {
           container = document.querySelector(container);
