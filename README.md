@@ -37,7 +37,7 @@ Vue.use(vueSmoothScroll)
   {
     duration: 500, // Animation speed
     offset: 0, // Offset from element, you can use positive or negative values
-    cotainer: '', // the scroll container, default is window,use document.querySelector to query the Element
+    container: '', // the scroll container, default is window,use document.querySelector to query the Element
   }
 ```
 ### Example:
