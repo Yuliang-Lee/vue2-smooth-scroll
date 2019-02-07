@@ -9,6 +9,7 @@
 
 ## Features
 
+- **fixed SSR**
 - fixed `duration` problem, now animation work good.
 - support **scroll down** and **scroll up**
 - support specific scroll container
