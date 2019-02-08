@@ -1,16 +1,3 @@
-// we use requestAnimationFrame to be called by the browser before every repaint
-const requestAnimationFrame = window.requestAnimationFrame ||
-  window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
-  function(fn) {
-    window.setTimeout(fn, 16);
-  };
-
-const defaultValue = {
-  duration: 500,
-  offset: 0,
-  container: window
-};
-
 // Get the top position of an element in the document
 const getTop = function(element, start) {
   // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
@@ -25,6 +12,19 @@ export default {
         // We do not want this script to be applied in browsers that do not support those
         // That means no smoothscroll on IE9 and below.
         if (typeof window !== 'object' || window.pageYOffset === undefined) return;
+
+        const defaultValue = {
+          duration: 500,
+          offset: 0,
+          container: window
+        };
+
+        // we use requestAnimationFrame to be called by the browser before every repaint
+        const requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
+        function(fn) {
+          window.setTimeout(fn, 16);
+        };
 
         let { duration, offset, container } = binding.value;
         duration = duration || defaultValue.duration;
