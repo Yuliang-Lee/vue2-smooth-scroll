@@ -54,12 +54,13 @@ Vue.use(vueSmoothScroll)
 ``` html
 <body>
   <div id="app">
-    <a href="#app" v-smooth-scroll>Anchor</a>
+    <a href="#bottom" v-smooth-scroll>click me will scroll to bottom!</a>
+    <div style="height: 2000px;"></div>
+    <span id="bottom">bottom</span>
   </div>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue2-smooth-scroll@1.0.0"></script>
+  <script src="https://unpkg.com/vue2-smooth-scroll"></script>
   <script>
-  Vue.use(VueSmoothScroll)
   var app = new Vue({
     el: '#app',
     data: {
@@ -72,4 +73,4 @@ Vue.use(vueSmoothScroll)
 
 ## License
 
-MIT
+[MIT](./LICENSE)

@@ -6,6 +6,7 @@ function resolve(dir) {
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'production',
   output: {
     path: resolve("dist"),
     filename: 'vue-smooth-scroll.min.js',

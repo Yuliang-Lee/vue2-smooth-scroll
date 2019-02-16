@@ -4,7 +4,8 @@ const getTop = function(element, start) {
   if (element.nodeName === 'HTML') return -start;
   return element.getBoundingClientRect().top + start;
 };
-export default {
+
+const VueSmoothScroll = {
   install(Vue) {
     Vue.directive('smooth-scroll', {
       inserted(el, binding) {
@@ -26,7 +27,7 @@ export default {
           window.setTimeout(fn, 16);
         };
 
-        let { duration, offset, container } = binding.value;
+        let { duration, offset, container } = binding.value || {};
         duration = duration || defaultValue.duration;
         offset = offset || defaultValue.offset;
         container = container || defaultValue.container;
@@ -78,6 +79,13 @@ export default {
     });
   }
 };
+
+export default VueSmoothScroll
+
+/* istanbul ignore if */
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(VueSmoothScroll)
+}
 
 /**
  * ease in out function
