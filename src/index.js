@@ -6,7 +6,7 @@ const getTop = function(element, start) {
 };
 
 const VueSmoothScroll = {
-  install(Vue) {
+  install(Vue, config) {
     Vue.directive('smooth-scroll', {
       inserted(el, binding) {
         // Do not initialize smoothScroll when running server side, handle it in client
@@ -17,8 +17,13 @@ const VueSmoothScroll = {
         const defaultValue = {
           duration: 500,
           offset: 0,
-          container: window
+          container: window,
+          updateHistory: true,
         };
+
+        if (config) {
+          Object.assign(defaultValue, config);
+        }
 
         // we use requestAnimationFrame to be called by the browser before every repaint
         const requestAnimationFrame = window.requestAnimationFrame ||
@@ -27,10 +32,11 @@ const VueSmoothScroll = {
           window.setTimeout(fn, 16);
         };
 
-        let { duration, offset, container } = binding.value || {};
+        let { duration, offset, container, updateHistory } = binding.value || {};
         duration = duration || defaultValue.duration;
         offset = offset || defaultValue.offset;
         container = container || defaultValue.container;
+        updateHistory = updateHistory !== undefined ? updateHistory : defaultValue.updateHistory;
 
         if (typeof container === 'string') {
           container = document.querySelector(container);
@@ -45,7 +51,7 @@ const VueSmoothScroll = {
           // Using the history api to solve issue: back doesn't work
           // most browser don't update :target when the history api is used:
           // THIS IS A BUG FROM THE BROWSERS.
-          if (window.history.pushState && location.hash !== this.hash) window.history.pushState('', '', this.hash);
+          if (updateHistory && window.history.pushState && location.hash !== this.hash) window.history.pushState('', '', this.hash);
 
 
           const startPoint = container.scrollTop || window.pageYOffset;
@@ -66,7 +72,7 @@ const VueSmoothScroll = {
               position = startPoint + (end - startPoint) * easeInOutCubic(elapsed / duration);
 
               requestAnimationFrame(step);
-            } else {
+            } else if (updateHistory) {
               location.replace('#' + scrollTo.id);
               // this will cause the :target to be activated.
             }
