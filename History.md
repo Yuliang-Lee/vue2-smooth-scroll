@@ -1,4 +1,10 @@
 
+v1.1.0 / 2019-06-25
+==================
+
+  * deps: update
+  * feat: add config option to enable/disable updating window.history https://github.com/Yuliang-Lee/vue2-smooth-scroll/pull/9
+
 v1.0.5 / 2019-02-16
 ==================
 
