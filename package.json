@@ -1,6 +1,6 @@
 {
   "name": "vue2-smooth-scroll",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Simple vue smooth scroll",
   "main": "dist/vue-smooth-scroll.min.js",
   "scripts": {
