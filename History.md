@@ -1,4 +1,10 @@
 
+v1.1.1 / 2019-11-02
+==================
+
+  * deps: update other deps
+  * build(deps): bump eslint-utils from 1.3.1 to 1.4.3
+
 v1.1.0 / 2019-06-25
 ==================
 
