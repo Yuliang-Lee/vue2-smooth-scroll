@@ -27,11 +27,22 @@ import vueSmoothScroll from 'vue2-smooth-scroll'
 Vue.use(vueSmoothScroll)
 ```
 
-## Usage
+## Directive usage
 ``` html
 <a href="#div-id" v-smooth-scroll>Anchor</a>
 <div id="div-id"></div>
 ```
+
+## Programmatic usage
+``` js
+const exampleElement = this.$refs.exampleElement || this.$el || document.getElementById(...)
+this.$smoothScroll({
+  scrollTo: exampleElement,
+  hash: '#exampleHash' // only required if updateHistory is true
+  ... // optional overrides for global config
+})
+```
+
 ## Custom options
 ### Defaults
 ``` js
