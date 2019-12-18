@@ -38,13 +38,14 @@ Vue.use(vueSmoothScroll)
   {
     duration: 500, // Animation speed
     offset: 0, // Offset from element, you can use positive or negative values
-    container: '', // the scroll container, default is window,use document.querySelector to query the Element
+    container: '', // the scroll container, default is window,use document.querySelector to query the Element,
+    updateHistory: true //Push hash to histor
   }
 ```
 ### Example:
 ``` html
 <div id="container">
-  <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container' }">Anchor</a>
+  <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container', updateHistory: false }">Anchor</a>
   <div id="div-id"></div>
 </div>
 ```
