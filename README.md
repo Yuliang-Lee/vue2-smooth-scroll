@@ -39,7 +39,7 @@ Vue.use(vueSmoothScroll)
     duration: 500, // Animation speed
     offset: 0, // Offset from element, you can use positive or negative values
     container: '', // the scroll container, default is window,use document.querySelector to query the Element,
-    updateHistory: true //Push hash to histor
+    updateHistory: true //Push hash to history or not
   }
 ```
 ### Example:
