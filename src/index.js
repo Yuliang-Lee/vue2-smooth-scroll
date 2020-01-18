@@ -5,15 +5,18 @@ const getTop = function(element, start) {
   return element.getBoundingClientRect().top + start;
 };
 
+const smoothScrollCtx = Symbol('smoothScrollCtx')
+
 const VueSmoothScroll = {
   install(Vue, config) {
     Vue.directive('smooth-scroll', {
-      inserted(el, binding) {
+      inserted(el, binding, vnode) {
         // Do not initialize smoothScroll when running server side, handle it in client
         // We do not want this script to be applied in browsers that do not support those
         // That means no smoothscroll on IE9 and below.
         if (typeof window !== 'object' || window.pageYOffset === undefined) return;
 
+        const hash = vnode.data.attrs.href;
         const defaultValue = {
           duration: 500,
           offset: 0,
@@ -42,16 +45,15 @@ const VueSmoothScroll = {
           container = document.querySelector(container);
         }
 
-        // Attach the smoothscroll function
-        el.addEventListener('click', function(ev) {
+        const clickHandler = function(ev) {
           ev.preventDefault();
-          const scrollTo = document.getElementById(this.hash.substring(1));
+          const scrollTo = document.getElementById(hash.substring(1));
           if (!scrollTo) return; // Do not scroll to non-existing node
 
           // Using the history api to solve issue: back doesn't work
           // most browser don't update :target when the history api is used:
           // THIS IS A BUG FROM THE BROWSERS.
-          if (updateHistory && window.history.pushState && location.hash !== this.hash) window.history.pushState('', '', this.hash);
+          if (updateHistory && window.history.pushState && location.hash !== hash) window.history.pushState('', '', hash);
 
 
           const startPoint = container.scrollTop || window.pageYOffset;
@@ -80,7 +82,17 @@ const VueSmoothScroll = {
             container === window ? container.scrollTo(0, position) : (container.scrollTop = position);
           };
           step();
-        });
+        }
+        // Attach the smoothscroll function
+        el.addEventListener('click', clickHandler);
+
+        el[smoothScrollCtx] = {
+          clickHandler
+        }
+      },
+      unbind(el) {
+        el.removeEventListener('click', el[smoothScrollCtx].clickHandler)
+        el[smoothScrollCtx] = null
       }
     });
   }

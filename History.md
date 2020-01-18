@@ -1,4 +1,10 @@
 
+v1.2.0 / 2020-01-18
+==================
+
+  * feat: use in component
+  * Document updateHistory options (#13)
+
 v1.1.1 / 2019-11-02
 ==================
 
