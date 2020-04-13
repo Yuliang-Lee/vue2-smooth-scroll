@@ -1,3 +1,8 @@
+v1.2.0 / 2020-01-18
+==================
+
+  * deps: update
+  * fix: Set output.globalObject to "this" to fix SSR (https://github.com/Yuliang-Lee/vue2-smooth-scroll/pull/19)
 
 v1.2.0 / 2020-01-18
 ==================
