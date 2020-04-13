@@ -8,17 +8,18 @@ module.exports = {
   entry: './src/index.js',
   mode: 'production',
   output: {
-    path: resolve("dist"),
+    path: resolve('dist'),
     filename: 'vue-smooth-scroll.min.js',
     library: 'VueSmoothScroll',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         include: [
-          resolve("src")
+          resolve('src')
         ],
         loader: 'babel-loader'
       }
@@ -27,5 +28,4 @@ module.exports = {
   resolve: {
     extensions: ['js'],
   }
-
 };
