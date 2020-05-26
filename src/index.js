@@ -70,15 +70,16 @@ const VueSmoothScroll = {
 
         const hash = vnode.data.attrs.href;
 
+        let resolvedConfig = Object.assign({}, defaultValue);
         if (config) {
-          Object.assign(defaultValue, config);
+          Object.assign(resolvedConfig, config);
         }
 
         let { duration, offset, container, updateHistory } = binding.value || {};
-        duration = duration || defaultValue.duration;
-        offset = offset || defaultValue.offset;
-        container = container || defaultValue.container;
-        updateHistory = updateHistory !== undefined ? updateHistory : defaultValue.updateHistory;
+        duration = duration || resolvedConfig.duration;
+        offset = offset || resolvedConfig.offset;
+        container = container || resolvedConfig.container;
+        updateHistory = updateHistory !== undefined ? updateHistory : resolvedConfig.updateHistory;
 
         if (typeof container === 'string') {
           container = document.querySelector(container);
@@ -105,7 +106,7 @@ const VueSmoothScroll = {
     });
 
     Vue.prototype.$smoothScroll = (args) => {
-      const resolvedArgs = Object.assign(defaultValue, config, args);
+      const resolvedArgs = Object.assign({}, defaultValue, config, args);
       return _smoothScroll(resolvedArgs)
     }
   }
