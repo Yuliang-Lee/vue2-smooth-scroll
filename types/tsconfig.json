@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "strict": true,
+    "noEmit": true,
+    "declaration": true
+  },
+  "include": [
+    "*.d.ts",
+  ]
+}
