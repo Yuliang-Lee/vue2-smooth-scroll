@@ -1,6 +1,6 @@
 # Vue2 Smooth Scroll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Vue 2.x](https://img.shields.io/badge/Vue-2.x-brightgreen.svg)](https://vuejs.org/v2/guide/)
@@ -100,6 +100,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/jwhitmarsh"><img src="https://avatars2.githubusercontent.com/u/8026009?v=4" width="100px;" alt=""/><br /><sub><b>James</b></sub></a><br /><a href="https://github.com/Yuliang-Lee/vue2-smooth-scroll/commits?author=jwhitmarsh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/a-kriya"><img src="https://avatars3.githubusercontent.com/u/26761352?v=4" width="100px;" alt=""/><br /><sub><b>a-kriya</b></sub></a><br /><a href="https://github.com/Yuliang-Lee/vue2-smooth-scroll/commits?author=a-kriya" title="Code">💻</a> <a href="https://github.com/Yuliang-Lee/vue2-smooth-scroll/issues?q=author%3Aa-kriya" title="Bug reports">🐛</a> <a href="https://github.com/Yuliang-Lee/vue2-smooth-scroll/commits?author=a-kriya" title="Documentation">📖</a></td>
   </tr>
 </table>
 
