@@ -1,3 +1,10 @@
+
+v1.4.0 / 2020-06-16
+==================
+
+  * build(types): add TypeScript types
+  * feat: export smoothScroll() method so it can be used programatically
+
 v1.3.0 / 2020-04-13
 ==================
 

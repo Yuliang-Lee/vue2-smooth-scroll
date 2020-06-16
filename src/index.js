@@ -17,7 +17,7 @@ function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, h
       window.setTimeout(fn, 16);
     };
   }
-  
+
   // Using the history api to solve issue: back doesn't work
   // most browser don't update :target when the history api is used:
   // THIS IS A BUG FROM THE BROWSERS.
@@ -68,8 +68,6 @@ const VueSmoothScroll = {
         // That means no smoothscroll on IE9 and below.
         if (typeof window !== 'object' || window.pageYOffset === undefined) return;
 
-        const hash = vnode.data.attrs.href;
-
         let resolvedConfig = Object.assign({}, defaultValue);
         if (config) {
           Object.assign(resolvedConfig, config);
@@ -87,6 +85,7 @@ const VueSmoothScroll = {
 
         const clickHandler = function(ev) {
           ev.preventDefault();
+          const hash = vnode.data.attrs.href;
           const scrollTo = document.getElementById(hash.substring(1));
           if (!scrollTo) return; // Do not scroll to non-existing node
 
