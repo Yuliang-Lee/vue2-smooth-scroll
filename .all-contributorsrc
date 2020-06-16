@@ -13,6 +13,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "a-kriya",
+      "name": "a-kriya",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/26761352?v=4",
+      "profile": "https://github.com/a-kriya",
+      "contributions": [
+        "code",
+        "bug",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
