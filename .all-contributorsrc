@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "jwhitmarsh",
+      "name": "James",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8026009?v=4",
+      "profile": "https://github.com/jwhitmarsh",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "vue2-smooth-scroll",
+  "projectOwner": "Yuliang-Lee",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
