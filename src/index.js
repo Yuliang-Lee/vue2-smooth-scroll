@@ -8,6 +8,15 @@ const getTop = function(element, start) {
   return element.getBoundingClientRect().top + start;
 };
 
+function getDefaultConfig() {
+  return {
+    duration: 500,
+    offset: 0,
+    container: window,
+    updateHistory: true,
+  };
+}
+
 const smoothScrollCtx = Symbol('smoothScrollCtx')
 
 function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, hash }) {
@@ -54,13 +63,6 @@ function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, h
 
 const VueSmoothScroll = {
   install(Vue, config) {
-    const defaultValue = {
-      duration: 500,
-      offset: 0,
-      container: window,
-      updateHistory: true,
-    };
-
     Vue.directive('smooth-scroll', {
       inserted(el, binding, vnode) {
         // Do not initialize smoothScroll when running server side, handle it in client
@@ -68,7 +70,7 @@ const VueSmoothScroll = {
         // That means no smoothscroll on IE9 and below.
         if (typeof window !== 'object' || window.pageYOffset === undefined) return;
 
-        let resolvedConfig = Object.assign({}, defaultValue);
+        let resolvedConfig = Object.assign({}, getDefaultConfig());
         if (config) {
           Object.assign(resolvedConfig, config);
         }
@@ -105,7 +107,7 @@ const VueSmoothScroll = {
     });
 
     Vue.prototype.$smoothScroll = (args) => {
-      const resolvedArgs = Object.assign({}, defaultValue, config, args);
+      const resolvedArgs = Object.assign({}, getDefaultConfig(), config, args);
       return _smoothScroll(resolvedArgs)
     }
   }
