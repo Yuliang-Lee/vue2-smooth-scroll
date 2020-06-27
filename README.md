@@ -8,87 +8,114 @@
 [![npm-downloades](https://img.shields.io/npm/dm/vue2-smooth-scroll.svg)](https://www.npmjs.com/package/vue2-smooth-scroll)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Yuliang-Lee/vue2-smooth-scroll/blob/master/LICENSE)
 
-> Simple vue smooth scroll extended from [vue-smooth-scroll](https://github.com/alamcordeiro/vue-smooth-scroll)
+Lightweight Vue plugin for smooth-scrolling extended from [vue-smooth-scroll](https://github.com/alamcordeiro/vue-smooth-scroll).
+
+For simple use-cases, the native [`scroll-behavior` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) (working draft) may be enough.
+
 
 ## Features
 
-- **fixed SSR**
-- fixed `duration` problem, now animation work good.
-- support **scroll down** and **scroll up**
-- support specific scroll container
-- Optimize code
+- Directive and programmatic API with global and local config overrides
+- SSR
+- Smooth, non-blocking animation using `requestAnimationFrame` (with fallback)
+- Y-axis or vertical scrolling
+- Specific scroll containers
+- 1.3kB gzipped, 2.9kB min
 
-## Instalation
+
+## Installation
 ``` bash
-# install dependency
 npm install --save vue2-smooth-scroll
 ```
 
-``` javascript
-// import on your project (less then 1KB gziped)
-import vueSmoothScroll from 'vue2-smooth-scroll'
-Vue.use(vueSmoothScroll)
-```
-
-## Directive usage
-``` html
-<a href="#div-id" v-smooth-scroll>Anchor</a>
-<div id="div-id"></div>
-```
-
-## Programmatic usage
 ``` js
-const exampleElement = this.$refs.exampleElement || this.$el || document.getElementById(...)
+import VueSmoothScroll from 'vue2-smooth-scroll'
+Vue.use(VueSmoothScroll)
+```
+
+
+## Usage
+### Directive
+``` html
+<a href="#sec-3" v-smooth-scroll>Section 3</a>
+
+<section id="sec-3"></section>
+```
+
+### Programmatic
+``` js
+const myEl = this.$refs.myEl || this.$el || document.getElementById(...)
+
 this.$smoothScroll({
-  scrollTo: exampleElement,
-  hash: '#exampleHash' // only required if updateHistory is true
-  ... // optional overrides for global config
+  scrollTo: myEl,
+  hash: '#sampleHash'  // required if updateHistory is true
 })
 ```
+
+### Direct in `<script>`
+``` html
+<body>
+  <div id="app">
+    <a href="#bottom" v-smooth-scroll>Let's go to #bottom!</a>
+    <div style="height: 2000px;"></div>
+    <span id="bottom">bottom</span>
+  </div>
+  
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue2-smooth-scroll"></script>
+  <script>
+    var app = new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+```
+
 
 ## Custom options
 ### Defaults
 ``` js
-  {
-    duration: 500, // Animation speed
-    offset: 0, // Offset from element, you can use positive or negative values
-    container: '', // the scroll container, default is window,use document.querySelector to query the Element,
-    updateHistory: true //Push hash to history or not
-  }
+{
+  duration: 500,       // animation duration in ms
+  offset: 0,           // offset in px from scroll element, can be positive or negative
+  container: '',       // selector string or Element for scroll container, default is window
+  updateHistory: true  // whether to push hash to history
+}
 ```
-### Example:
+
+### Global
+``` js
+import VueSmoothScroll from 'vue2-smooth-scroll'
+
+Vue.use(VueSmoothScroll, {
+  duration: 400,
+  updateHistory: false,
+})
+```
+
+### Directive:
 ``` html
 <div id="container">
-  <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container', updateHistory: false }">Anchor</a>
+  <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container' }">Anchor</a>
+  
   <div id="div-id"></div>
 </div>
 ```
 
-
-### Without Browserify or Webpack
-``` html
-<body>
-  <div id="app">
-    <a href="#bottom" v-smooth-scroll>click me will scroll to bottom!</a>
-    <div style="height: 2000px;"></div>
-    <span id="bottom">bottom</span>
-  </div>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue2-smooth-scroll"></script>
-  <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      message: 'Hello Vue!'
-    }
-  })
-</script>
-</body>
+### Programmatic
+``` js
+this.$smoothScroll({
+  scrollTo: this.$refs.myEl,
+  duration: 1000,
+  offset: -50,
+})
 ```
+
 
 ## License
 
 [MIT](./LICENSE)
+
 
 ## Contributors ✨
 
