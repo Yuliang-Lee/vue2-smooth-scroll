@@ -60,7 +60,7 @@ this.$smoothScroll({
     <div style="height: 2000px;"></div>
     <span id="bottom">bottom</span>
   </div>
-  
+
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue2-smooth-scroll"></script>
   <script>
@@ -80,6 +80,9 @@ this.$smoothScroll({
   offset: 0,           // offset in px from scroll element, can be positive or negative
   container: '',       // selector string or Element for scroll container, default is window
   updateHistory: true  // whether to push hash to history
+  easingFunction: null // gives the ability to provide a custom easing function `t => ...`
+                       // (see https://gist.github.com/gre/1650294 for examples)
+                       // if nothing is given, it will defaults to `easeInOutCubic`
 }
 ```
 
@@ -97,7 +100,7 @@ Vue.use(VueSmoothScroll, {
 ``` html
 <div id="container">
   <a href="#div-id" v-smooth-scroll="{ duration: 1000, offset: -50, container: '#container' }">Anchor</a>
-  
+
   <div id="div-id"></div>
 </div>
 ```
