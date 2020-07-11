@@ -14,12 +14,13 @@ function getDefaultConfig() {
     offset: 0,
     container: window,
     updateHistory: true,
+    easingFunction: null,
   };
 }
 
 const smoothScrollCtx = Symbol('smoothScrollCtx')
 
-function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, hash }) {
+function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, hash, easingFunction }) {
   if (!requestAnimationFrame) {
     requestAnimationFrame = window.requestAnimationFrame ||
     function(fn) {
@@ -47,8 +48,9 @@ function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, h
     const elapsed = Date.now() - clock;
     // calculate the scroll position we should be in
     let position = end;
+    let easeFn = (typeof easingFunction === 'function' && easingFunction) || easeInOutCubic;
     if (elapsed < duration) {
-      position = startPoint + (end - startPoint) * easeInOutCubic(elapsed / duration);
+      position = startPoint + (end - startPoint) * easeFn(elapsed / duration);
 
       requestAnimationFrame(step);
     } else if (updateHistory) {
@@ -75,11 +77,12 @@ const VueSmoothScroll = {
           Object.assign(resolvedConfig, config);
         }
 
-        let { duration, offset, container, updateHistory } = binding.value || {};
+        let { duration, offset, container, updateHistory, easingFunction } = binding.value || {};
         duration = duration || resolvedConfig.duration;
         offset = offset || resolvedConfig.offset;
         container = container || resolvedConfig.container;
         updateHistory = updateHistory !== undefined ? updateHistory : resolvedConfig.updateHistory;
+        easingFunction = easingFunction || resolvedConfig.easingFunction;
 
         if (typeof container === 'string') {
           container = document.querySelector(container);
@@ -91,7 +94,7 @@ const VueSmoothScroll = {
           const scrollTo = document.getElementById(hash.substring(1));
           if (!scrollTo) return; // Do not scroll to non-existing node
 
-          _smoothScroll({ scrollTo, offset, duration, container, updateHistory, hash });
+          _smoothScroll({ scrollTo, offset, duration, container, updateHistory, hash, easingFunction });
         }
         // Attach the smoothscroll function
         el.addEventListener('click', clickHandler);
