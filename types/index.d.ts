@@ -10,6 +10,7 @@ export interface SmoothScrollOptions {
   container?: Element | string;
   updateHistory?: boolean;
   hash?: string; // required if updateHistory is true
+  easingFunction?: Function
 }
 
 declare const Vue2SmoothScroll: PluginFunction<SmoothScrollOptions>;

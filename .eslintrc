@@ -16,9 +16,9 @@
   "rules": {
     "arrow-parens": "off",
     "valid-jsdoc": "off",
-    "eol-last": "off",
+    "eol-last": 2,
     "array-bracket-spacing": "off",
-    "no-unused-vars": "off",
+    "no-unused-vars": 2,
     "newline-per-chained-call": "off",
     "strict": "off",
     "no-console": "warn",

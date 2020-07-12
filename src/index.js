@@ -43,12 +43,12 @@ function _smoothScroll({ scrollTo, offset, duration, container, updateHistory, h
   end += offset;
 
   const clock = Date.now();
+  const easeFn = (typeof easingFunction === 'function' && easingFunction) || easeInOutCubic;
   const step = function() {
     // the time elapsed from the beginning of the scroll
     const elapsed = Date.now() - clock;
     // calculate the scroll position we should be in
     let position = end;
-    let easeFn = (typeof easingFunction === 'function' && easingFunction) || easeInOutCubic;
     if (elapsed < duration) {
       position = startPoint + (end - startPoint) * easeFn(elapsed / duration);
 
