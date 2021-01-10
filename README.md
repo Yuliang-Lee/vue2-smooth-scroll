@@ -12,6 +12,9 @@ Lightweight Vue plugin for smooth-scrolling extended from [vue-smooth-scroll](ht
 
 For simple use-cases, the native [`scroll-behavior` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) (working draft) may be enough.
 
+**This package compatible with Vue 2.x and Vue 1.x**
+
+**New package for Vue 3.x use this [v-smooth-scroll](https://github.com/Yuliang-Lee/v-smooth-scroll) please**
 
 ## Features
 
