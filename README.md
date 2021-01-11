@@ -14,7 +14,7 @@ For simple use-cases, the native [`scroll-behavior` CSS property](https://develo
 
 **This package compatible with Vue 2.x and Vue 1.x**
 
-**New package for Vue 3.x use this [v-smooth-scroll](https://github.com/Yuliang-Lee/v-smooth-scroll) please**
+**New package for Vue 3.x use this package [v-smooth-scroll](https://github.com/Yuliang-Lee/v-smooth-scroll)**
 
 ## Features
 
