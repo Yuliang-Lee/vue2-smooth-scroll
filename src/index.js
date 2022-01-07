@@ -5,7 +5,10 @@ let requestAnimationFrame;
 const getTop = function(element, start) {
   // return value of html.getBoundingClientRect().top ... IE : 0, other browsers : -pageYOffset
   if (element.nodeName === 'HTML') return -start;
-  return element.getBoundingClientRect().top + start;
+
+  const elementTop = element.getBoundingClientRect().top
+  const scrollMarginTop = parseInt(window.getComputedStyle(element).scrollMarginTop || 0, 10)
+  return elementTop + start - scrollMarginTop;
 };
 
 function getDefaultConfig() {
